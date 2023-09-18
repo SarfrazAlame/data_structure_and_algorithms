@@ -46,17 +46,83 @@ class DoublyLinkedList:
                 index = 0
                 while index < location - 1:
                     tempNode = tempNode.next
-                    index += 1
+                    index += 1 
                 newNode.next = tempNode.next
                 newNode.prev = tempNode
                 newNode.next.prev = newNode
                 tempNode.next = newNode
+            
+    #  Traversal Method in Doubly Linked List
+    def traversalDLL(self):
+        if self.head is None:
+            print("There is not any element to tarverse")
+        else:
+            temp_node = self.head
+            while temp_node:
+                print(temp_node.value)
+                temp_node = temp_node.next
+
+   # Reverse Taversal in Doubly Linked List
+    def ReverseTravesalDLL(self):
+        if self.head is None:
+            print("there is not any element to reverse traverse")
+        else:
+            tempNode = self.tail
+            while tempNode:
+                print(tempNode.value)
+                tempNode = tempNode.prev
+    
+    # Searching for the node in the doubly Linked List
+    def SearchDLL(self,target):
+        if self.head is None:
+            return "there is not any element to search"
+        else:
+            temp_node = self.head
+            while temp_node:
+                if temp_node.value == target:
+                    return True
+                temp_node = temp_node.next
+            return False
+    
+    # Deletion in doublly linked list
+    def Deletion(self,location):
+        if self.head is None:
+            print("nothing to delete")
+        else:
+            if location==0:
+                if self.head==self.tail:
+                    self.head = None
+                    self.tail = None
+                else:
+                    self.head.next = self.head
+                    self.head.prev = None
+            elif location==1:
+                if self.head == self.tail:
+                    self.head=None
+                    self.tail=None
+                else:
+                    self.tail = self.tail.prev
+                    self.tail.next = None
+            else:
+                tempNode = self.head
+                for _ in range(location-1):
+                    tempNode = tempNode.next
+                tempNode.next = tempNode.next.next
+                tempNode.next.prev = tempNode
+            print("the node has been successfully deleted")
+            
 
 
 doublyLL = DoublyLinkedList()
-doublyLL.createDLL(10)
+doublyLL.createDLL(30)
+doublyLL.insertNode(20,0)
+doublyLL.insertNode(10,1)
+doublyLL.insertNode(40,2)
+doublyLL.insertNode(50,3)
 print([node.value for node in doublyLL])
-doublyLL.insertNode(0,1)
-doublyLL.insertNode(2,5)
-doublyLL.insertNode(3,23)
+# doublyLL.traversalDLL()
+# print("   ")
+# doublyLL.ReverseTravesalDLL()
+# print(doublyLL.SearchDLL(30))
+doublyLL.Deletion(0)
 print([node.value for node in doublyLL])

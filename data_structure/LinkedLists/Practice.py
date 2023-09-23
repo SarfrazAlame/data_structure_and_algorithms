@@ -1,13 +1,13 @@
-# class Person:
-#     def __init__(self,name,age):
-#         self.name=name
-#         self.age=age
+class Person:
+    def __init__(self,name,age):
+        self.name=name
+        self.age=age
 
-#     def __str__(self):
-#         return f"Person is {self.name} and age is {self.age}"
+    def __str__(self):
+        return f"Person is {self.name} and age is {self.age}"
 
-# new_person = Person("Sarfraz",21)
-# print(new_person)
+new_person = Person("Sarfraz",21)
+print(new_person)
 
 
 # class Node:

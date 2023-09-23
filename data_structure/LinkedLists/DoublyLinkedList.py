@@ -19,10 +19,10 @@ class DoublyLinkedList:
     # creation of doubly linked lists
     def createDLL(self, nodeValue):
         node = Node(nodeValue)
-        node.prev = None
-        node.next = None
         self.head = node
         self.tail = node
+        node.prev = None
+        node.next = None
         return "DLL is created successfully"
 
     # Insertion method in doubly linked list
@@ -110,7 +110,19 @@ class DoublyLinkedList:
                 tempNode.next = tempNode.next.next
                 tempNode.next.prev = tempNode
             print("the node has been successfully deleted")
-            
+
+    
+    # Delete Entire Doubly Linked List
+    def DeleteAllNode(self):
+        if self.head is None:
+            print("nothing to delete")
+        else:
+            tempNode = self.head
+            while tempNode:
+                tempNode.prev = None
+                tempNode = tempNode.next
+            self.head = None
+            self.tail = None
 
 
 doublyLL = DoublyLinkedList()
@@ -124,5 +136,6 @@ print([node.value for node in doublyLL])
 # print("   ")
 # doublyLL.ReverseTravesalDLL()
 # print(doublyLL.SearchDLL(30))
-doublyLL.Deletion(0)
+# doublyLL.Deletion(-1)
+doublyLL.DeleteAllNode()
 print([node.value for node in doublyLL])

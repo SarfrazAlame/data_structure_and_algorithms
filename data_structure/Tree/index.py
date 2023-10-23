@@ -28,4 +28,3 @@ cold.addChild(fanta)
 hot.addChild(tea)
 hot.addChild(coffee)
 print(tree)
- 

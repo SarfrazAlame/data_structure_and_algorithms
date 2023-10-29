@@ -14,3 +14,13 @@
 # # d. [2,3]
 
 # print(max(23,4))
+# print(int(1/2))
+
+# x = [1,2,3]
+# y = x
+# x.append(4)
+# y=x+[5]
+# print(x)
+
+print(ord('a'))
+ 

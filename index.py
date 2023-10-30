@@ -22,5 +22,16 @@
 # y=x+[5]
 # print(x)
 
-print(ord('a'))
- 
+# print(ord('a'))
+
+
+# class Node:
+#     def __init__(self, value):
+#         self.value = value
+
+#     def __str__(self):
+#         return f"{self.value}"
+
+
+# newNode = Node(12)
+# print(newNode)

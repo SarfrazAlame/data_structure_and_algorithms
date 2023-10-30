@@ -40,7 +40,6 @@
 
 # //////////////////////inserting element
 
-
 # class Node:
 #     def __init__(self, value):
 #         self.value = value
@@ -203,165 +202,198 @@
 # print(new_linked_list)
 
 
-#############################  Practice Above things
+################################################ Practice Linked list #############################################
+
 class Node:
-    def __init__(self, value):
+    def __init__(self,value):
         self.value = value
         self.next = None
 
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
-        self.tail = None
-        self.length = 0
 
-    def __str__(self):
-        tempNode = self.head
-        result = " "
-        while tempNode:
-            result += str(tempNode.value)
-            if tempNode.next:
-                result += "->"
-            tempNode = tempNode.next
-        return result
 
-    # append the element
-    def append(self, value):
-        newNode = Node(value)
-        if self.length == 0:
-            self.head = newNode
-            self.tail = newNode
-        else:
-            self.tail.next = newNode
-            self.tail = newNode
-        self.length += 1
 
-    # prepend the element
-    def prepend(self, value):
-        newNode = Node(value)
-        if self.head is None:
-            self.head = newNode
-            self.tail = newNode
-        else:
-            newNode.next = self.head
-            self.head = newNode
-        self.length += 1
 
-    # insert element
-    def insert(self, index, value):
-        if index < 0 or index > self.length:
-            return None
-        newNode = Node(value)
-        if index == 0:
-            newNode.next = self.head
-            self.head = newNode
-        else:
-            prevNode = self.head
-            for _ in range(index - 1):
-                prevNode = prevNode.next
-            newNode.next = prevNode.next
-            prevNode.next = newNode
-        self.length += 1
 
-    # Taverse the element
-    def Traverse(self):
-        tempNode = self.head
-        while tempNode:
-            print(tempNode.value)
-            tempNode = tempNode.next
 
-    # Search the element
-    def Search(self, target):
-        tempNode = self.head
-        while tempNode:
-            if tempNode.value == target:
-                return True
-            tempNode = tempNode.next
-        return False
 
-    # get the element with index
-    def get(self, index):
-        if index < 0 or index > self.length:
-            return None
-        tempNode = self.head
-        for _ in range(index):
-            tempNode = tempNode.next
-        return tempNode.value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#################################################  Practice Above things once again ################################
+# class Node:
+#     def __init__(self, value):
+#         self.value = value
+#         self.next = None
+
+
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+#         self.tail = None
+#         self.length = 0
+
+#     def __str__(self):
+#         tempNode = self.head
+#         result = " "
+#         while tempNode:
+#             result += str(tempNode.value)
+#             if tempNode.next:
+#                 result += "->"
+#             tempNode = tempNode.next
+#         return result
+
+#     # append the element
+#     def append(self, value):
+#         newNode = Node(value)
+#         if self.length == 0:
+#             self.head = newNode
+#             self.tail = newNode
+#         else:
+#             self.tail.next = newNode
+#             self.tail = newNode
+#         self.length += 1
+
+#     # prepend the element
+#     def prepend(self, value):
+#         newNode = Node(value)
+#         if self.head is None:
+#             self.head = newNode
+#             self.tail = newNode
+#         else:
+#             newNode.next = self.head
+#             self.head = newNode
+#         self.length += 1
+
+#     # insert element
+#     def insert(self, index, value):
+#         if index < 0 or index > self.length:
+#             return None
+#         newNode = Node(value)
+#         if index == 0:
+#             newNode.next = self.head
+#             self.head = newNode
+#         else:
+#             prevNode = self.head
+#             for _ in range(index - 1):
+#                 prevNode = prevNode.next
+#             newNode.next = prevNode.next
+#             prevNode.next = newNode
+#         self.length += 1
+
+#     # Taverse the element
+#     def Traverse(self):
+#         tempNode = self.head
+#         while tempNode:
+#             print(tempNode.value)
+#             tempNode = tempNode.next
+
+#     # Search the element
+#     def Search(self, target):
+#         tempNode = self.head
+#         while tempNode:
+#             if tempNode.value == target:
+#                 return True
+#             tempNode = tempNode.next
+#         return False
+
+#     # get the element with index
+#     def get(self, index):
+#         if index < 0 or index > self.length:
+#             return None
+#         tempNode = self.head
+#         for _ in range(index):
+#             tempNode = tempNode.next
+#         return tempNode.value
     
-    #update the value
-    def set_value(self,index,value):
-        tempNode = self.head
-        for _ in range(index):
-            tempNode = tempNode.next
-        if tempNode:
-            tempNode.value = value
-        return False
+#     #update the value
+#     def set_value(self,index,value):
+#         tempNode = self.head
+#         for _ in range(index):
+#             tempNode = tempNode.next
+#         if tempNode:
+#             tempNode.value = value
+#         return False
     
-    # delete first node
-    def pop_first(self):
-        tempNode = self.head
-        if self.length==0:
-            print("nothing to delete")
-        elif self.length == 1:
-            self.head = None
-            self.tail = None
-        else:
-            self.head = tempNode.next
-            tempNode.next = None
-        self.length-=1
+#     # delete first node
+#     def pop_first(self):
+#         tempNode = self.head
+#         if self.length==0:
+#             print("nothing to delete")
+#         elif self.length == 1:
+#             self.head = None
+#             self.tail = None
+#         else:
+#             self.head = tempNode.next
+#             tempNode.next = None
+#         self.length-=1
     
-    def pop(self):
-        if self.length==0:
-            print("nothing to delete")
-        elif self.length==1:
-            self.head = None
-            self.tail = None
-        else:
-            tempNode = self.head
-            while tempNode is not self.tail:
-                tempNode = tempNode.next
-            tempNode.next = None
-            self.tail = tempNode
-        self.length-=1
+#     def pop(self):
+#         if self.length==0:
+#             print("nothing to delete")
+#         elif self.length==1:
+#             self.head = None
+#             self.tail = None
+#         else:
+#             tempNode = self.head
+#             while tempNode is not self.tail:
+#                 tempNode = tempNode.next
+#             tempNode.next = None
+#             self.tail = tempNode
+#         self.length-=1
         
-    # remove element from list
-    def remove(self,index):
-        tempNode = self.head
-        if self.length == 0:
-            print("nothing to delete")
-        elif index==1:
-            self.head = tempNode.next
-            tempNode.next = None
-        else:
-            for _ in range(index-1):
-                tempNode = tempNode.next
-            poppedNode = tempNode.next
-            tempNode.next = poppedNode.next
-            poppedNode.next = None
+#     # remove element from list
+#     def remove(self,index):
+#         tempNode = self.head
+#         if self.length == 0:
+#             print("nothing to delete")
+#         elif index==1:
+#             self.head = tempNode.next
+#             tempNode.next = None
+#         else:
+#             for _ in range(index-1):
+#                 tempNode = tempNode.next
+#             poppedNode = tempNode.next
+#             tempNode.next = poppedNode.next
+#             poppedNode.next = None
 
-        self.length-=1
+#         self.length-=1
         
-    # delete All node 
-    def DeleteAll(self):
-        self.head = None
-        self.tail = None
-        self.length = 0
+#     # delete All node 
+#     def DeleteAll(self):
+#         self.head = None
+#         self.tail = None
+#         self.length = 0
 
 
-new_linked_list = LinkedList()
-new_linked_list.append(20)
-new_linked_list.append(30)
-new_linked_list.append(40)
-new_linked_list.prepend(10)
-new_linked_list.insert(4, 60)
-print(new_linked_list)
-# new_linked_list.Traverse()
-# print(new_linked_list.Search(20))
-# print(new_linked_list.get(3))
-# new_linked_list.set_value(4,100)
-# new_linked_list.pop_first()
-# new_linked_list.pop()
-# new_linked_list.remove(2)
-new_linked_list.DeleteAll()
-print(new_linked_list)
+# new_linked_list = LinkedList()
+# new_linked_list.append(20)
+# new_linked_list.append(30)
+# new_linked_list.append(40)
+# new_linked_list.prepend(10)
+# new_linked_list.insert(4, 60)
+# print(new_linked_list)
+# # new_linked_list.Traverse()
+# # print(new_linked_list.Search(20))
+# # print(new_linked_list.get(3))
+# # new_linked_list.set_value(4,100)
+# # new_linked_list.pop_first()
+# # new_linked_list.pop()
+# # new_linked_list.remove(2)
+# new_linked_list.DeleteAll()
+# print(new_linked_list)

@@ -67,19 +67,19 @@
 # print(my_array)
 
 # //////////////////////  insertion
-from array import *
+# from array import *
 
-my_array = array("i", [1, 3, 5, 7, 42, 5, 6, 8, 45])
-my_array.insert(0, 8)
+# my_array = array("i", [1, 3, 5, 7, 42, 5, 6, 8, 45])
+# my_array.insert(0, 8)
 
-# ////////////   accessing the element
+# # ////////////   accessing the element
 
+# def accessElem(arr, k):
+#     if k > len(arr):
+#         return "not found"
+#     for i in range(0, len(arr)):
+#         if k == arr[i]:
+#             return i
 
-def accessElem(arr, k):
-    if k > len(arr):
-        return "not found"
-    for i in range(0, len(arr)):
-        if k == arr[i]:
-            return i
+# print(accessElem(my_array, 45))
 
-print(accessElem(my_array, 45))

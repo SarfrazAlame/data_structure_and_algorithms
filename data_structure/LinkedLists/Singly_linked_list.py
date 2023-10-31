@@ -209,29 +209,19 @@ class Node:
         self.value = value
         self.next = None
 
+class LinkedList:
+    def __init__(self,value):
+        newNode = Node(value)
+        self.head = newNode
+        self.tail = newNode
+        self.length = 1
+    
+    def append(self,value):
+        newNode = Node(value)
+        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+newLinkedList = LinkedList(10)
+print(newLinkedList.head.value)
 
 
 
@@ -320,7 +310,7 @@ class Node:
 #         for _ in range(index):
 #             tempNode = tempNode.next
 #         return tempNode.value
-    
+
 #     #update the value
 #     def set_value(self,index,value):
 #         tempNode = self.head
@@ -329,7 +319,7 @@ class Node:
 #         if tempNode:
 #             tempNode.value = value
 #         return False
-    
+
 #     # delete first node
 #     def pop_first(self):
 #         tempNode = self.head
@@ -342,7 +332,7 @@ class Node:
 #             self.head = tempNode.next
 #             tempNode.next = None
 #         self.length-=1
-    
+
 #     def pop(self):
 #         if self.length==0:
 #             print("nothing to delete")
@@ -356,7 +346,7 @@ class Node:
 #             tempNode.next = None
 #             self.tail = tempNode
 #         self.length-=1
-        
+
 #     # remove element from list
 #     def remove(self,index):
 #         tempNode = self.head
@@ -373,8 +363,8 @@ class Node:
 #             poppedNode.next = None
 
 #         self.length-=1
-        
-#     # delete All node 
+
+#     # delete All node
 #     def DeleteAll(self):
 #         self.head = None
 #         self.tail = None

@@ -204,25 +204,77 @@
 
 ################################################ Practice Linked list #############################################
 
+
 class Node:
-    def __init__(self,value):
+    def __init__(self, value):
         self.value = value
         self.next = None
 
+
 class LinkedList:
-    def __init__(self,value):
-        newNode = Node(value)
-        self.head = newNode
-        self.tail = newNode
+    def __init__(self):
+        self.head = None
+        self.tail = None
         self.length = 1
-    
-    def append(self,value):
+
+    def __str__(self):
+        firstNode = self.head
+        result = ""
+        while firstNode:
+            result += str(firstNode.value)
+            if firstNode.next:
+                result += "-->"
+            firstNode = firstNode.next
+        return result
+
+    def append(self, value):
         newNode = Node(value)
+        if self.head is None:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            self.tail.next = newNode
+            self.tail = newNode
+
+    def prepend(self, value):
+        newNode = Node(value)
+        if self.head is None:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            newNode.next = self.head
+            self.head = newNode
+        self.length+=1
+    
+    def insertNode(self,value,index):
+        newNode = Node(value)
+        if index < 0 or index > self.length:
+            return False
+        elif self.length == 0:
+            self.head = newNode
+            self.tail = newNode
+        elif index == 0:
+            newNode.next = self.head
+            self.head = newNode
+        else:
+            pre_node = self.head
+            for _ in range(index-1):
+                pre_node = pre_node.next
+            pre_node.next = newNode
+            newNode.next = 
+
+            
+
         
 
-newLinkedList = LinkedList(10)
-print(newLinkedList.head.value)
 
+newLinkedList = LinkedList()
+newLinkedList.append(20)
+newLinkedList.append(17)
+newLinkedList.append(34)
+newLinkedList.prepend(34)
+newLinkedList.insertNode(12,0)
+print(newLinkedList)
 
 
 #################################################  Practice Above things once again ################################

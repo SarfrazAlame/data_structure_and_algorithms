@@ -235,6 +235,7 @@ class LinkedList:
         else:
             self.tail.next = newNode
             self.tail = newNode
+        self.length += 1
 
     def prepend(self, value):
         newNode = Node(value)
@@ -244,13 +245,13 @@ class LinkedList:
         else:
             newNode.next = self.head
             self.head = newNode
-        self.length+=1
-    
-    def insertNode(self,value,index):
-        newNode = Node(value)
+        self.length += 1
+
+    def insertNode(self, value, index):
         if index < 0 or index > self.length:
             return False
-        elif self.length == 0:
+        newNode = Node(value)
+        if self.length == 0:
             self.head = newNode
             self.tail = newNode
         elif index == 0:
@@ -258,22 +259,89 @@ class LinkedList:
             self.head = newNode
         else:
             pre_node = self.head
-            for _ in range(index-1):
+            for _ in range(index - 1):
                 pre_node = pre_node.next
+            newNode.next = pre_node.next
             pre_node.next = newNode
-            newNode.next = 
+        self.length += 1
+        return True
 
-            
+    def traverseNode(self):
+        newNode = self.head
+        while newNode:
+            print(newNode.value)
+            newNode = newNode.next
 
-        
+    def searchNode(self, nodeValue):
+        firstNode = self.head
+        index = 0
+        while firstNode:
+            if firstNode.value == nodeValue:
+                return index
+            firstNode = firstNode.next
+            index += 1
+        return -1
+
+    def get(self, index):
+        if index < -1 or index > self.length:
+            return None
+        if index == -1:
+            return self.tail.value
+        targetNode = self.head
+        for _ in range(index):
+            targetNode = targetNode.next
+        return targetNode.value
+
+    def set_value(self, index, newNode):
+        if index < 0 or index > self.length:
+            return None
+        firstNode = self.head
+        for _ in range(index):
+            firstNode = firstNode.next
+        firstNode.value = newNode
+        return "successfully updated"
+
+    def pop_node(self):
+        popedNode = self.head
+        if self.length == 0:
+            return None
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = self.head.next
+            popedNode.next = None
+        return popedNode.value
+
+    def pop(self):
+        popNode = self.tail
+        if self.length == 0:
+            return None
+        if self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            newNode = self.head
+            while newNode.next is not self.tail:
+                newNode = newNode.next
+            self.tail = newNode
+            newNode.next = None
+        return popNode.value
 
 
 newLinkedList = LinkedList()
 newLinkedList.append(20)
 newLinkedList.append(17)
 newLinkedList.append(34)
+newLinkedList.append(45)
 newLinkedList.prepend(34)
-newLinkedList.insertNode(12,0)
+newLinkedList.insertNode(12, 4)
+# newLinkedList.traverseNode()
+# print(newLinkedList.searchNode(34))
+# print(newLinkedList.get(-1))
+newLinkedList.set_value(0, 40)
+# print(newLinkedList.pop_node())
+print(newLinkedList.pop())
 print(newLinkedList)
 
 

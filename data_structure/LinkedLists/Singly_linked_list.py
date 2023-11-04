@@ -327,6 +327,24 @@ class LinkedList:
             self.tail = newNode
             newNode.next = None
         return popNode.value
+    
+    def remove(self,index):
+        if index < 0 or index > self.length:
+            return None
+        if index == 0:
+            if self.length == 1:
+                self.head = None
+                self.tail = None
+            else:
+                self.head = self.head.next
+                self.head.next = None
+        else:
+            newNode = self.head
+            
+
+                
+            
+            
 
 
 newLinkedList = LinkedList()

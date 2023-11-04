@@ -327,27 +327,26 @@ class LinkedList:
             self.tail = newNode
             newNode.next = None
         return popNode.value
-    
-    def remove(self,index):
+
+    def remove(self, index):
+        pre_node = self.head
         if index < 0 or index > self.length:
             return None
         if index == 0:
-            if self.length == 1:
-                self.head = None
-                self.tail = None
-            else:
-                self.head = self.head.next
-                self.head.next = None
+            self.head = self.head.next
+            pre_node.next = None
         else:
-            newNode = self.head
-            for _ in range(index-1):
-                newNode = newNode.next
-            newNode.next = newNode.next.next
-            popped_node = newNode.next
-            newNode.next = popped_node.next
+            for _ in range(index - 1):
+                pre_node = pre_node.next
+            popped_node = pre_node.next
+            pre_node.next = popped_node.next
             popped_node = None
-            self.length-=1
-            
+            self.length -= 1
+
+    def DeleteAll(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
 
 
 newLinkedList = LinkedList()
@@ -355,16 +354,18 @@ newLinkedList.append(20)
 newLinkedList.append(17)
 newLinkedList.append(34)
 newLinkedList.append(45)
-newLinkedList.prepend(34)
+# newLinkedList.prepend(44)
 newLinkedList.insertNode(12, 4)
 # newLinkedList.traverseNode()
 # print(newLinkedList.searchNode(34))
 # print(newLinkedList.get(-1))
-newLinkedList.set_value(0, 40)
+# newLinkedList.set_value(0, 40)
 # print(newLinkedList.pop_node())
 # print(newLinkedList.pop())
-print(newLinkedList)
-newLinkedList.remove(1)
+# print(newLinkedList)
+# newLinkedList.remove(2)
+# print(newLinkedList)
+newLinkedList.DeleteAll()
 print(newLinkedList)
 
 

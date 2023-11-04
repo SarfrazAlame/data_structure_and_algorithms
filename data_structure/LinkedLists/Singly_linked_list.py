@@ -340,10 +340,13 @@ class LinkedList:
                 self.head.next = None
         else:
             newNode = self.head
-            
-
-                
-            
+            for _ in range(index-1):
+                newNode = newNode.next
+            newNode.next = newNode.next.next
+            popped_node = newNode.next
+            newNode.next = popped_node.next
+            popped_node = None
+            self.length-=1
             
 
 
@@ -359,7 +362,9 @@ newLinkedList.insertNode(12, 4)
 # print(newLinkedList.get(-1))
 newLinkedList.set_value(0, 40)
 # print(newLinkedList.pop_node())
-print(newLinkedList.pop())
+# print(newLinkedList.pop())
+print(newLinkedList)
+newLinkedList.remove(1)
 print(newLinkedList)
 
 

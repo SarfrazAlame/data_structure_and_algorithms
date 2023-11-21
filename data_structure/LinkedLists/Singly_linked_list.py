@@ -342,6 +342,7 @@ class LinkedList:
             pre_node.next = popped_node.next
             popped_node = None
             self.length -= 1
+            
 
     def DeleteAll(self):
         self.head = None

@@ -205,169 +205,169 @@
 ################################################ Practice Linked list #############################################
 
 
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
+# class Node:
+#     def __init__(self, value):
+#         self.value = value
+#         self.next = None
 
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
-        self.tail = None
-        self.length = 1
+# class LinkedList:
+#     def __init__(self):
+#         self.head = None
+#         self.tail = None
+#         self.length = 1
 
-    def __str__(self):
-        firstNode = self.head
-        result = ""
-        while firstNode:
-            result += str(firstNode.value)
-            if firstNode.next:
-                result += "-->"
-            firstNode = firstNode.next
-        return result
+#     def __str__(self):
+#         firstNode = self.head
+#         result = ""
+#         while firstNode:
+#             result += str(firstNode.value)
+#             if firstNode.next:
+#                 result += "-->"
+#             firstNode = firstNode.next
+#         return result
 
-    def append(self, value):
-        newNode = Node(value)
-        if self.head is None:
-            self.head = newNode
-            self.tail = newNode
-        else:
-            self.tail.next = newNode
-            self.tail = newNode
-        self.length += 1
+#     def append(self, value):
+#         newNode = Node(value)
+#         if self.head is None:
+#             self.head = newNode
+#             self.tail = newNode
+#         else:
+#             self.tail.next = newNode
+#             self.tail = newNode
+#         self.length += 1
 
-    def prepend(self, value):
-        newNode = Node(value)
-        if self.head is None:
-            self.head = newNode
-            self.tail = newNode
-        else:
-            newNode.next = self.head
-            self.head = newNode
-        self.length += 1
+#     def prepend(self, value):
+#         newNode = Node(value)
+#         if self.head is None:
+#             self.head = newNode
+#             self.tail = newNode
+#         else:
+#             newNode.next = self.head
+#             self.head = newNode
+#         self.length += 1
 
-    def insertNode(self, value, index):
-        if index < 0 or index > self.length:
-            return False
-        newNode = Node(value)
-        if self.length == 0:
-            self.head = newNode
-            self.tail = newNode
-        elif index == 0:
-            newNode.next = self.head
-            self.head = newNode
-        else:
-            pre_node = self.head
-            for _ in range(index - 1):
-                pre_node = pre_node.next
-            newNode.next = pre_node.next
-            pre_node.next = newNode
-        self.length += 1
-        return True
+#     def insertNode(self, value, index):
+#         if index < 0 or index > self.length:
+#             return False
+#         newNode = Node(value)
+#         if self.length == 0:
+#             self.head = newNode
+#             self.tail = newNode
+#         elif index == 0:
+#             newNode.next = self.head
+#             self.head = newNode
+#         else:
+#             pre_node = self.head
+#             for _ in range(index - 1):
+#                 pre_node = pre_node.next
+#             newNode.next = pre_node.next
+#             pre_node.next = newNode
+#         self.length += 1
+#         return True
 
-    def traverseNode(self):
-        newNode = self.head
-        while newNode:
-            print(newNode.value)
-            newNode = newNode.next
+#     def traverseNode(self):
+#         newNode = self.head
+#         while newNode:
+#             print(newNode.value)
+#             newNode = newNode.next
 
-    def searchNode(self, nodeValue):
-        firstNode = self.head
-        index = 0
-        while firstNode:
-            if firstNode.value == nodeValue:
-                return index
-            firstNode = firstNode.next
-            index += 1
-        return -1
+#     def searchNode(self, nodeValue):
+#         firstNode = self.head
+#         index = 0
+#         while firstNode:
+#             if firstNode.value == nodeValue:
+#                 return index
+#             firstNode = firstNode.next
+#             index += 1
+#         return -1
 
-    def get(self, index):
-        if index < -1 or index > self.length:
-            return None
-        if index == -1:
-            return self.tail.value
-        targetNode = self.head
-        for _ in range(index):
-            targetNode = targetNode.next
-        return targetNode.value
+#     def get(self, index):
+#         if index < -1 or index > self.length:
+#             return None
+#         if index == -1:
+#             return self.tail.value
+#         targetNode = self.head
+#         for _ in range(index):
+#             targetNode = targetNode.next
+#         return targetNode.value
 
-    def set_value(self, index, newNode):
-        if index < 0 or index > self.length:
-            return None
-        firstNode = self.head
-        for _ in range(index):
-            firstNode = firstNode.next
-        firstNode.value = newNode
-        return "successfully updated"
+#     def set_value(self, index, newNode):
+#         if index < 0 or index > self.length:
+#             return None
+#         firstNode = self.head
+#         for _ in range(index):
+#             firstNode = firstNode.next
+#         firstNode.value = newNode
+#         return "successfully updated"
 
-    def pop_node(self):
-        popedNode = self.head
-        if self.length == 0:
-            return None
-        if self.length == 1:
-            self.head = None
-            self.tail = None
-        else:
-            self.head = self.head.next
-            popedNode.next = None
-        return popedNode.value
+#     def pop_node(self):
+#         popedNode = self.head
+#         if self.length == 0:
+#             return None
+#         if self.length == 1:
+#             self.head = None
+#             self.tail = None
+#         else:
+#             self.head = self.head.next
+#             popedNode.next = None
+#         return popedNode.value
 
-    def pop(self):
-        popNode = self.tail
-        if self.length == 0:
-            return None
-        if self.length == 1:
-            self.head = None
-            self.tail = None
-        else:
-            newNode = self.head
-            while newNode.next is not self.tail:
-                newNode = newNode.next
-            self.tail = newNode
-            newNode.next = None
-        return popNode.value
+#     def pop(self):
+#         popNode = self.tail
+#         if self.length == 0:
+#             return None
+#         if self.length == 1:
+#             self.head = None
+#             self.tail = None
+#         else:
+#             newNode = self.head
+#             while newNode.next is not self.tail:
+#                 newNode = newNode.next
+#             self.tail = newNode
+#             newNode.next = None
+#         return popNode.value
 
-    def remove(self, index):
-        pre_node = self.head
-        if index < 0 or index > self.length:
-            return None
-        if index == 0:
-            self.head = self.head.next
-            pre_node.next = None
-        else:
-            for _ in range(index - 1):
-                pre_node = pre_node.next
-            popped_node = pre_node.next
-            pre_node.next = popped_node.next
-            popped_node = None
-            self.length -= 1
-            
-
-    def DeleteAll(self):
-        self.head = None
-        self.tail = None
-        self.length = 0
+#     def remove(self, index):
+#         pre_node = self.head
+#         if index < 0 or index > self.length:
+#             return None
+#         if index == 0:
+#             self.head = self.head.next
+#             pre_node.next = None
+#         else:
+#             for _ in range(index - 1):
+#                 pre_node = pre_node.next
+#             popped_node = pre_node.next
+#             pre_node.next = popped_node.next
+#             popped_node = None
+#             self.length -= 1
 
 
-newLinkedList = LinkedList()
-newLinkedList.append(20)
-newLinkedList.append(17)
-newLinkedList.append(34)
-newLinkedList.append(45)
-# newLinkedList.prepend(44)
-newLinkedList.insertNode(12, 4)
-# newLinkedList.traverseNode()
-# print(newLinkedList.searchNode(34))
-# print(newLinkedList.get(-1))
-# newLinkedList.set_value(0, 40)
-# print(newLinkedList.pop_node())
-# print(newLinkedList.pop())
+#     def DeleteAll(self):
+#         self.head = None
+#         self.tail = None
+#         self.length = 0
+
+
+# newLinkedList = LinkedList()
+# newLinkedList.append(20)
+# newLinkedList.append(17)
+# newLinkedList.append(34)
+# newLinkedList.append(45)
+# # newLinkedList.prepend(44)
+# newLinkedList.insertNode(12, 4)
+# # newLinkedList.traverseNode()
+# # print(newLinkedList.searchNode(34))
+# # print(newLinkedList.get(-1))
+# # newLinkedList.set_value(0, 40)
+# # print(newLinkedList.pop_node())
+# # print(newLinkedList.pop())
+# # print(newLinkedList)
+# # newLinkedList.remove(2)
+# # print(newLinkedList)
+# newLinkedList.DeleteAll()
 # print(newLinkedList)
-# newLinkedList.remove(2)
-# print(newLinkedList)
-newLinkedList.DeleteAll()
-print(newLinkedList)
 
 
 #################################################  Practice Above things once again ################################
@@ -486,7 +486,7 @@ print(newLinkedList)
 #             self.tail = None
 #         else:
 #             tempNode = self.head
-#             while tempNode is not self.tail:
+#             while tempNode.next is not self.tail:
 #                 tempNode = tempNode.next
 #             tempNode.next = None
 #             self.tail = tempNode
@@ -532,3 +532,159 @@ print(newLinkedList)
 # # new_linked_list.remove(2)
 # new_linked_list.DeleteAll()
 # print(new_linked_list)
+
+
+######################  practice  again  ##############################
+
+
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
+
+    def __str__(self):
+        newNode = self.head
+        TempNode = " "
+        while newNode:
+            TempNode += str(newNode.value)
+            if newNode.next:
+                TempNode += "-->"
+            newNode = newNode.next
+        return TempNode
+
+    def append(self, value):
+        newNode = Node(value)
+        if self.length == 0:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            self.tail.next = newNode
+            self.tail = newNode
+        self.length += 1
+
+    def prepend(self, value):
+        newNode = Node(value)
+        if self.head is None:
+            self.head = newNode
+            self.tail = newNode
+        else:
+            newNode.next = self.head
+            self.head = newNode
+        self.length += 1
+
+    def insertNode(self, index, value):
+        newNode = Node(value)
+        if index > self.length or index < 0:
+            return None
+        if index == 0:
+            newNode.next = self.head
+            self.head = newNode
+        else:
+            prevNode = self.head
+            for _ in range(0, index - 1):
+                prevNode = prevNode.next
+            newNode.next = prevNode.next
+            prevNode.next = newNode
+        self.length += 1
+
+    def TraversNode(self):
+        tempNode = self.head
+        while tempNode:
+            print(tempNode.value)
+            tempNode = tempNode.next
+
+    def SearchNode(self, target):
+        firstNode = self.head
+        while firstNode:
+            if firstNode.value == target:
+                return "found"
+            firstNode = firstNode.next
+        return "not found"
+
+    def get(self, index):
+        tempNode = self.head
+        for _ in range(0, index):
+            tempNode = tempNode.next
+        return tempNode.value
+
+    def set_value(self, index, value):
+        newNode = Node(value)
+        tempNode = self.head
+        for _ in range(index):
+            tempNode = tempNode.next
+        tempNode.value = newNode.value
+        return "successfully updateda"
+
+    def pop_first(self):
+        firstNode = self.head
+        if self.length == 0:
+            return "nothing to delete"
+        elif self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            self.head = firstNode.next
+            firstNode.next = None
+        self.length -= 1
+
+    def pop(self):
+        popped_Node = self.tail
+        if self.length == 0:
+            return "nothiong to delete"
+        elif self.length == 1:
+            self.head = None
+            self.tail = None
+        else:
+            firstNode = self.head
+            while firstNode.next is not self.tail:
+                firstNode = firstNode.next
+            firstNode.next = None
+            self.tail = firstNode
+        self.length -= 1
+        return popped_Node
+
+    def remove(self, index):
+        pre_node = self.head
+        if self.length == 0:
+            return "noghting to delte"
+        elif index == 1:
+            self.head = pre_node.next
+            pre_node.next = None
+        else:
+            for _ in range(0, index - 1):
+                pre_node = pre_node.next
+            popped_Node = pre_node.next
+            pre_node.next = popped_Node.next
+            popped_Node.next = None
+        self.length -= 1
+    
+    def delete(self):
+        self.head = None
+        self.tail = None
+
+
+newLinkedList = LinkedList()
+newLinkedList.append(12)
+newLinkedList.append(20)
+newLinkedList.append(16)
+newLinkedList.append(25)
+newLinkedList.prepend(10)
+newLinkedList.prepend(90)
+newLinkedList.insertNode(0, 23)
+# newLinkedList.TraversNode()
+# print(newLinkedList.SearchNode(1))
+# print(newLinkedList.get(3))
+print(newLinkedList)
+# newLinkedList.set_value(4, 123)
+# newLinkedList.pop_first()
+# newLinkedList.pop()
+# newLinkedList.remove(3)
+newLinkedList.delete()
+print(newLinkedList)

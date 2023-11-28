@@ -227,7 +227,25 @@ class CSDLinkedList:
                 if tempNode is self.head:
                     break
             return False
-
+    
+    def deleteNode(self,index):
+        tempNode = self.head
+        if self.head is None:
+            print("nothing to delete")
+        else:
+            if index==0:
+                self.head = tempNode.next
+                self.head.pre = self.tail
+                self.tail.next = self.head
+                tempNode.next = None
+            else:
+                for _ in range(index-1):
+                    tempNode = tempNode.next
+                removedNode = tempNode.next
+                tempNode.next = removedNode.next
+                removedNode.next.pre = tempNode
+                removedNode.next = None
+                removedNode.pre = None
 
 
 newCSDLinkedList = CSDLinkedList()
@@ -237,5 +255,7 @@ newCSDLinkedList.insertNode(15,1)
 newCSDLinkedList.insertNode(24,2)
 # newCSDLinkedList.TraverseNode()
 # newCSDLinkedList.reverseTraverseNode()
-print(newCSDLinkedList.SearchNode(15))
+# print(newCSDLinkedList.SearchNode(15))
+print([newNode.value for newNode in newCSDLinkedList])
+newCSDLinkedList.deleteNode(3)
 print([newNode.value for newNode in newCSDLinkedList])
